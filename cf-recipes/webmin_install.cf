@@ -4,10 +4,11 @@
 # wget http://prdownloads.sourceforge.net/webadmin/webmin_1.570_all.deb
 #
 
-
+body common control {
+  bundlesequence => { "webmin_install" };
+}
 
 bundle agent webmin_install {
-
   vars:
     "prereq_pkgs" slist => {
           "libapt-pkg-perl",
@@ -15,13 +16,14 @@ bundle agent webmin_install {
           "libauthen-pam-perl",
           "libio-pty-perl",
           "apt-show-versions"
-     } 
+     };
 
-  any::
-    "Installing Webmin"
-  commands:
-    Ubuntu::
-      "apt-get install $(prereq_pkgs)";
-      "wget http://prdownloads.sourceforge.net/webadmin/webmin_1.570_all.deb";
-      "dpkg -i webmin_1.570_all.deb"      
+ 
+  # "Installing Webmin";
+
+  debian|ubuntu::
+    commands:
+      "/usr/bin/apt-get install $(prereq_pkgs)";
+      "/usr/bin/wget http://prdownloads.sourceforge.net/webadmin/webmin_1.570_all.deb";
+      "/usr/bin/dpkg -i webmin_1.570_all.deb";      
 }

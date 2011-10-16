@@ -1,0 +1,9 @@
+
+
+"download and install aoetools"
+
+wget -c http://sourceforge.net/projects/aoetools/files/aoetools/32/aoetools-32.tar.gz/download
+    tar -zxvf aoetools-32.tar.gz
+    cd aoetools-32
+    make
+    make install

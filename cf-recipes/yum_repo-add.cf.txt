@@ -1,0 +1,16 @@
+"Add repository to YUM, and install package"
+
+CentOS::
+
+cat >/etc/yum.repos.d/euca2ools.repo << EUCA_REPO_CONF_EOF
+[eucalyptus]
+name=euca2ools
+baseurl=http://www.eucalyptussoftware.com/downloads/repo/euca2ools/1.3.1/yum/centos/
+enabled=1
+gpgcheck=0
+
+EUCA_REPO_CONF_EOF
+
+rpm -Uvh 'http://download.fedora.redhat.com/pub/epel/5/x86_64/epel-release-5-4.noarch.rpm'
+
+"Credit: http://wiki.openstack.org/NovaInstall/CentOSNotes"

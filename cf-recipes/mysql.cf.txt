@@ -1,0 +1,6 @@
+CentOS::
+
+  "CentOS start MySQL server and register at startup"
+
+"sudo service mysqld start"
+"sudo chkconfig mysqld on"

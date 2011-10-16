@@ -1,0 +1,27 @@
+####
+# Webmin is avaliable for download at http://www.webmin.com/download.html"
+#
+# wget http://prdownloads.sourceforge.net/webadmin/webmin_1.570_all.deb
+#
+
+
+
+bundle agent webmin_install {
+
+  vars:
+    "prereq_pkgs" slist => {
+          "libapt-pkg-perl",
+          "libnet-ssleay-perl",
+          "libauthen-pam-perl",
+          "libio-pty-perl",
+          "apt-show-versions"
+     } 
+
+  any::
+    "Installing Webmin"
+  commands:
+    Ubuntu::
+      "apt-get install $(prereq_pkgs)";
+      "wget http://prdownloads.sourceforge.net/webadmin/webmin_1.570_all.deb";
+      "dpkg -i webmin_1.570_all.deb"      
+}

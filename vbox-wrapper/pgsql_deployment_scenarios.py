@@ -63,7 +63,7 @@ hdds = []    #all hdds
 
 # Set up system paths
 import os, os.path
-BASE_PATH = 'F:\\tegan' # base path for the cluster
+BASE_PATH = '.' # base path for the cluster
 CLUSTER_FOLDER = os.path.join(BASE_PATH,'cluster')
 HDD_FOLDER = os.path.join(BASE_PATH,'hdd')
 VM_FOLDER = os.path.join(BASE_PATH,'vm')

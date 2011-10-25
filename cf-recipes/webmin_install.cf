@@ -2,7 +2,8 @@
 # Webmin is avaliable for download at http://www.webmin.com/download.html"
 #
 # wget http://prdownloads.sourceforge.net/webadmin/webmin_1.570_all.deb
-#
+# cf-agent -If webmin_install.cf
+# cf-agent -nIf webmint_install.cf   # Dry run
 
 body common control {
   bundlesequence => { "webmin_install" };

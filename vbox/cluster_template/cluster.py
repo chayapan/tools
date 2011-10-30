@@ -99,7 +99,9 @@ class Cluster:
     def unregister(self):
         for host in self.host:
             vbox.unregister_vm(host.id, False) # Only unregister, not delete
-        ctl = 'cluster_unregister.bat'
+            for disk in host.disk:
+              vbox.vboxmanage(["closemedium", "disk", disk.filename])
+			ctl = 'cluster_unregister.bat'
         f=open(ctl,"w");f.write(vbox.history_flush());f.close()
     def poweron(self,headless=False):
         for host in self.host:
